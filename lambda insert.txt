@@ -1,0 +1,8 @@
+import boto3
+dynamo DB = boto3.resource('dynamodb')
+table = dynamoDB.Table('sanitizerApp')
+def lambda_handler(event,context):
+    # TODO implement
+    print(event)
+    table.put_item(Item=event)
+    return{"code":200,"message":"Registration Successful"}
