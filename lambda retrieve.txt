@@ -1,0 +1,8 @@
+import boto3
+dynamoDB = boto3.resource('dynamodb')
+table = dynamoDB.Table('sanitizerApp')
+def lambda_handler(event,context):
+    name=event['name']
+    print(name)
+    result=table.get_item(Key={"name":name})
+    return result['Item']
